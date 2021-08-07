@@ -7,7 +7,7 @@ const app = express()
 // Link to Database
 // ========================
 // Updates environment variables
-//require('./dotenv')
+require('./dotenv')
 
 // Replace process.env.DB_URL with your actual connection string
 const connectionString = process.env.DB_URL
@@ -16,7 +16,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     createApp(client)
   })
-  .catch(createApp({ db: () => ({ collection: () => { } }) }))
+  .catch((e) => console.log(e))
 
 function createApp(client) {
   console.log('Connected to Database')
