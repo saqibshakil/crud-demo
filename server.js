@@ -107,7 +107,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // Listen
     // ========================
     const isProduction = process.env.NODE_ENV === 'production'
-    const port = isProduction ? 7500 : 3000
+    const port = isProduction ? process.env.PORT : 3000
     app.listen(port, function () {
       console.log(`listening on ${port}`)
     })
